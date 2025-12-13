@@ -66,8 +66,8 @@ def generaMapa(df, center, zoom):
         color_continuous_scale=px.colors.cyclical.IceFire,
         size_max=10,
         opacity=0.5,
-        width=900,
-        height=400,
+        width=800,
+        height=500,
         zoom=zoom,
         mapbox_style="dark",
         center=center)
