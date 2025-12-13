@@ -123,7 +123,7 @@ tiempo = ["mes", "semana", "día"]
 Periodo = st.sidebar.selectbox("", tiempo)
 
 st.sidebar.markdown("### Zona Geográfica")
-Zoom_dict = {"Puerto Rico": 7.25, "Mundo": 1.0}
+Zoom_dict = {"Puerto Rico": 7.25, "Mundo": 0.95}
 zona = st.sidebar.selectbox("", list(Zoom_dict.keys()))
 zoom = Zoom_dict[zona]
 
@@ -208,7 +208,7 @@ with col1:
     st.markdown("<p style='font-size:15px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
 with col2:
-    st.markdown("<p style='font-size:14px'>Histograma de Profundidades", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:13px'>Histograma de Profundidades", unsafe_allow_html=True)
     st.write(generaProf(df_filtrado))
 with col3:
     if mapa:
