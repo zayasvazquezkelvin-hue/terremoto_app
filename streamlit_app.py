@@ -66,8 +66,8 @@ def generaMapa(df, center, zoom):
         color_continuous_scale=px.colors.cyclical.IceFire,
         size_max=10,
         opacity=0.5,
-        width=600,
-        height=450,
+        width=500,
+        height=400,
         zoom=zoom,
         mapbox_style="dark",
         center=center)
@@ -91,11 +91,11 @@ def generaMapa(df, center, zoom):
 
 
 def generaMag(df):
-    fig = px.histogram(df, x="Magnitud", color_discrete_sequence=["red"], width=300, height=450)
+    fig = px.histogram(df, x="Magnitud", color_discrete_sequence=["red"], width=300, height=400)
     return fig
 
 def generaProf(df):
-    fig = px.histogram(df, x="Profundidad", color_discrete_sequence=["red"], width=300, height=450)
+    fig = px.histogram(df, x="Profundidad", color_discrete_sequence=["red"], width=300, height=400)
     return fig
 
 # ------------
@@ -203,7 +203,7 @@ if evento:
 # -----------------------------
 # Gráficas y mapa en columnas
 # -----------------------------
-col1, col2, col3 = st.columns([1.20,1.20,5.0])
+col1, col2, col3 = st.columns([1.0,1.0,3.0])
 with col1:
     st.markdown("<p style='font-size:15px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
