@@ -67,7 +67,7 @@ def generaMapa(df, center, zoom):
         size_max=10,
         opacity=0.5,
         width=800,
-        height=500,
+        height=600,
         zoom=zoom,
         mapbox_style="dark",
         center=center)
@@ -91,11 +91,11 @@ def generaMapa(df, center, zoom):
 
 
 def generaMag(df):
-    fig = px.histogram(df, x="Magnitud", color_discrete_sequence=["red"], width=300, height=500)
+    fig = px.histogram(df, x="Magnitud", color_discrete_sequence=["red"], width=300, height=600)
     return fig
 
 def generaProf(df):
-    fig = px.histogram(df, x="Profundidad", color_discrete_sequence=["red"], width=300, height=500)
+    fig = px.histogram(df, x="Profundidad", color_discrete_sequence=["red"], width=300, height=600)
     return fig
 
 # ------------
@@ -123,7 +123,7 @@ tiempo = ["mes", "semana", "día"]
 Periodo = st.sidebar.selectbox("", tiempo)
 
 st.sidebar.markdown("### Zona Geográfica")
-Zoom_dict = {"Puerto Rico": 7.5, "Mundo": 1.0}
+Zoom_dict = {"Puerto Rico": 7.6, "Mundo": 1.0}
 zona = st.sidebar.selectbox("", list(Zoom_dict.keys()))
 zoom = Zoom_dict[zona]
 
