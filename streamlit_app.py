@@ -91,11 +91,11 @@ def generaMapa(df, center, zoom):
 
 
 def generaMag(df):
-    fig = px.histogram(df, x="Magnitud", color_discrete_sequence=["red"], width=300, height=400)
+    fig = px.histogram(df, x="Magnitud", color_discrete_sequence=["red"], width=300, height=500)
     return fig
 
 def generaProf(df):
-    fig = px.histogram(df, x="Profundidad", color_discrete_sequence=["red"], width=300, height=400)
+    fig = px.histogram(df, x="Profundidad", color_discrete_sequence=["red"], width=300, height=500)
     return fig
 
 # ------------
