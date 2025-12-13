@@ -66,7 +66,7 @@ def generaMapa(df, center, zoom):
         color_continuous_scale=px.colors.cyclical.IceFire,
         size_max=10,
         opacity=0.5,
-        width=500,
+        width=650,
         height=400,
         zoom=zoom,
         mapbox_style="dark",
@@ -123,7 +123,7 @@ tiempo = ["mes", "semana", "día"]
 Periodo = st.sidebar.selectbox("", tiempo)
 
 st.sidebar.markdown("### Zona Geográfica")
-Zoom_dict = {"Puerto Rico": 7.25, "Mundo": 0.95}
+Zoom_dict = {"Puerto Rico": 7.25, "Mundo": 0.85}
 zona = st.sidebar.selectbox("", list(Zoom_dict.keys()))
 zoom = Zoom_dict[zona]
 
@@ -205,10 +205,10 @@ if evento:
 # -----------------------------
 col1, col2, col3 = st.columns([1.0,1.0,3.0])
 with col1:
-    st.markdown("<p style='font-size:15px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
+    st.markdown("<p style='font-size:12px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
 with col2:
-    st.markdown("<p style='font-size:13px'>Histograma de Profundidades", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:12px'>Histograma de Profundidades", unsafe_allow_html=True)
     st.write(generaProf(df_filtrado))
 with col3:
     if mapa:
