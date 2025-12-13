@@ -123,7 +123,7 @@ tiempo = ["mes", "semana", "día"]
 Periodo = st.sidebar.selectbox("", tiempo)
 
 st.sidebar.markdown("### Zona Geográfica")
-Zoom_dict = {"Puerto Rico": 7.25, "Mundo": 0.85}
+Zoom_dict = {"Puerto Rico": 7.20, "Mundo": 0.95}
 zona = st.sidebar.selectbox("", list(Zoom_dict.keys()))
 zoom = Zoom_dict[zona]
 
