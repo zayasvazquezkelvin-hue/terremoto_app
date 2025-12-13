@@ -203,12 +203,12 @@ if evento:
 # -----------------------------
 # Gráficas y mapa en columnas
 # -----------------------------
-col1, col2, col3 = st.columns([1.0,1.0,3.0])
+col1, col2, col3 = st.columns([1.0,1.0,3.5])
 with col1:
-    st.markdown("<p style='font-size:12px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
+    st.markdown("<p style='font-size:14px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
 with col2:
-    st.markdown("<p style='font-size:12px'>Histograma de Profundidades", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:14px'>Histograma de Profundidades", unsafe_allow_html=True)
     st.write(generaProf(df_filtrado))
 with col3:
     if mapa:
