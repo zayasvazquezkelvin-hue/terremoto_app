@@ -203,7 +203,7 @@ if evento:
 # -----------------------------
 # Gráficas y mapa en columnas
 # -----------------------------
-col1, col2, col3 = st.columns([1.20,1.20,3.0])
+col1, col2, col3 = st.columns([1.20,1.20,4.0])
 with col1:
     st.markdown("<p style='font-size:15px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
