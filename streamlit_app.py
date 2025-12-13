@@ -123,7 +123,7 @@ tiempo = ["mes", "semana", "día"]
 Periodo = st.sidebar.selectbox("", tiempo)
 
 st.sidebar.markdown("### Zona Geográfica")
-Zoom_dict = {"Puerto Rico": 7.20, "Mundo": 1.0}
+Zoom_dict = {"Puerto Rico": 7.5, "Mundo": 1.0}
 zona = st.sidebar.selectbox("", list(Zoom_dict.keys()))
 zoom = Zoom_dict[zona]
 
@@ -165,9 +165,9 @@ elif Periodo == "semana":
 elif Periodo == "día":
     df_filtrado = df_filtrado[df_filtrado["Fecha"].dt.date == hoy.date()]
 
-# -----------------------------
+# ------------------------
 # Clasificación de Richter
-# -----------------------------
+# ------------------------
 def clasificar_richter(mag):
     if mag < 2.0: return "micro"
     elif 2.0 <= mag < 4.0: return "menor"
@@ -180,18 +180,19 @@ def clasificar_richter(mag):
 
 df_filtrado["Clasificación"] = df_filtrado["Magnitud"].apply(clasificar_richter)
 
-# -----------------------------
+# ------------
 # Estadísticas
-# -----------------------------
+# ------------
 st.markdown(f"<div style='text-align:center'>Fecha de petición: {hoy.strftime('%d de %B de %Y %H:%M:%S')}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center'>Cantidad de eventos: {len(df_filtrado)}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center'>Promedio de magnitudes: {df_filtrado['Magnitud'].mean():.2f}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center'>Promedio de profundidades: {df_filtrado['Profundidad'].mean():.2f} km</div>", unsafe_allow_html=True)
 st.write(" " )
 
-# -----------------------------
+# -----------------
 # Tabla con eventos
-# -----------------------------
+# -----------------
+
 if evento:
     if len(df_filtrado) <= cantidad_eventos:
         df_mostrar = df_filtrado.copy()
@@ -200,9 +201,9 @@ if evento:
     df_mostrar = df_mostrar.sort_values(by="Fecha", ascending=False)
     st.dataframe(df_mostrar[["Fecha ", "Lugar", "Magnitud", "Profundidad", "Clasificación"]].reset_index(drop=True))
 
-# -----------------------------
+# ---------------------------
 # Gráficas y mapa en columnas
-# -----------------------------
+# ---------------------------
 col1, col2, col3 = st.columns([1.0,1.0,3.5])
 with col1:
     st.markdown("<p style='font-size:13px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
