@@ -66,7 +66,7 @@ def generaMapa(df, center, zoom):
         color_continuous_scale=px.colors.cyclical.IceFire,
         size_max=10,
         opacity=0.5,
-        width=800,
+        width=900,
         height=400,
         zoom=zoom,
         mapbox_style="dark",
@@ -205,10 +205,10 @@ if evento:
 # -----------------------------
 col1, col2, col3 = st.columns([1.0,1.0,3.5])
 with col1:
-    st.markdown("<p style='font-size:14px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
+    st.markdown("<p style='font-size:13px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
 with col2:
-    st.markdown("<p style='font-size:14px'>Histograma de Profundidades", unsafe_allow_html=True)
+    st.markdown("<p style='font-size:13px'>Histograma de Profundidades", unsafe_allow_html=True)
     st.write(generaProf(df_filtrado))
 with col3:
     if mapa:
