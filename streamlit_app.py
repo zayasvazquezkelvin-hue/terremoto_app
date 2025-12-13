@@ -7,7 +7,7 @@ import locale
 import numpy as np
 
 st.set_page_config(layout="wide")
-st.subtitle("Datos en Tiempo Real de los Terremotos en Puerto Rico y el Mundo")
+st.title("Datos en Tiempo Real de los Terremotos en Puerto Rico y el Mundo")
 st.divider()
 token_id = "pk.eyJ1IjoibWVjb2JpIiwiYSI6IjU4YzVlOGQ2YjEzYjE3NTcxOTExZTI2OWY3Y2Y1ZGYxIn0.LUg7xQhGH2uf3zA57szCyw"
 px.set_mapbox_access_token(token_id)
