@@ -16,8 +16,7 @@ px.set_mapbox_access_token(token_id)
 # Configurar Fecha
 # ----------------
 
-
-    locale.setlocale(locale.LC_TIME, 'Spanish_Spain.1252')  # Windows
+locale.setlocale(locale.LC_TIME, 'Spanish_Spain.1252')  # Windows
 
 # -----
 # Tabla 
