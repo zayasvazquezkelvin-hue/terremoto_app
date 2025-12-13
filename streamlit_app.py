@@ -66,7 +66,7 @@ def generaMapa(df, center, zoom):
         color_continuous_scale=px.colors.cyclical.IceFire,
         size_max=10,
         opacity=0.5,
-        width=650,
+        width=800,
         height=400,
         zoom=zoom,
         mapbox_style="dark",
@@ -123,7 +123,7 @@ tiempo = ["mes", "semana", "día"]
 Periodo = st.sidebar.selectbox("", tiempo)
 
 st.sidebar.markdown("### Zona Geográfica")
-Zoom_dict = {"Puerto Rico": 7.20, "Mundo": 0.95}
+Zoom_dict = {"Puerto Rico": 7.20, "Mundo": 1.0}
 zona = st.sidebar.selectbox("", list(Zoom_dict.keys()))
 zoom = Zoom_dict[zona]
 
