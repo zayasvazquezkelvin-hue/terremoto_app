@@ -19,7 +19,7 @@ try:
    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8') 
 except:
    try:
-      locale.setlocale(locale.LC_TIME, 'es_ES')
+      locale.setlocale(locale.LC_TIME, 'Spanish_Spain')
    except:
       locale.setlocale(locale.LC_TIME, 'C.UTF-8')
 # -----
