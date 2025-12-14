@@ -15,11 +15,6 @@ px.set_mapbox_access_token(token_id)
 # ----------------
 # Configurar Fecha
 # ----------------
-month = {
-        "January": "enero", "February": "febrero", "March": "marzo",
-        "April": "abril", "May": "mayo", "June": "junio",
-        "July": "julio", "August": "agosto", "September": "septiembre",
-        "October": "octubre", "November": "noviembre", "December": "diciembre"}
 #try:
    # locale.setlocale(locale.LC_TIME, 'Spanish_Spain')
 #except:
@@ -52,16 +47,17 @@ def generaTabla():
 # ---------------    
 # Formatear fecha
 # ---------------
-    month = {
-        "January": "enero", "February": "febrero", "March": "marzo",
-        "April": "abril", "May": "mayo", "June": "junio",
-        "July": "julio", "August": "agosto", "September": "septiembre",
-        "October": "octubre", "November": "noviembre", "December": "diciembre"}
-    df["Fecha "] = df["Fecha"].apply(lambda x: f"{x.day} de {meses[x.strftime('%B')]} de {x.year}")
+meses_num = {
+        1: "enero", 2: "febrero", 3: "marzo",
+        4: "abril", 5: "mayo", 6: "junio",
+        7: "julio", 8: "agosto", 9: "septiembre",
+        10: "octubre", 11: "noviembre", 12: "diciembre"
+    }
 
-  #  df["Fecha "] = df["Fecha"].dt.strftime("%d de %B de %Y").str.capitalize()
+    df["Fecha "] = df["Fecha"].apply(
+        lambda x: f"{x.day} de {meses_num[x.month]} de {x.year}"
+    ).str.capitalize()
     return df
-
 # ----------------
 # Mapas y gráficas
 # ----------------
