@@ -34,9 +34,9 @@ def generaTabla():
         "Profundidad": pd.to_numeric(depths).round(2)
     })
     
-    # ---------------
-    # Formatear fecha en español (robusto)
-    # ---------------
+    # --------------
+    # Fecha adaptada
+    # --------------
     meses_num = {
         1: "enero", 2: "febrero", 3: "marzo",
         4: "abril", 5: "mayo", 6: "junio",
@@ -103,9 +103,9 @@ df = generaTabla()
 
 df = df[df["Magnitud"] >= 0]
 
-# -------
-# Sidebar
-# -------
+# -----------------------
+# Información del sidebar
+# -----------------------
 
 st.sidebar.markdown("### Severidad")
 categorias = ["todos", "significativo", "4.5", "2.5", "1.0"]
@@ -132,12 +132,11 @@ st.sidebar.markdown(
     <i>Kelvin Zayas Vázquez <br> 
     INGE3016<br>
     Universidad de Puerto Rico en Humacao<i>""",
-    unsafe_allow_html=True
-)
+    unsafe_allow_html=True)
 
-# -----------------------------
+# ---------------------
 # Filtrar por severidad
-# -----------------------------
+# ---------------------
 if severidad == "todos":
     df_filtrado = df.copy()
 elif severidad == "significativo":
@@ -183,14 +182,12 @@ meses_num = {
     1: "enero", 2: "febrero", 3: "marzo",
     4: "abril", 5: "mayo", 6: "junio",
     7: "julio", 8: "agosto", 9: "septiembre",
-    10: "octubre", 11: "noviembre", 12: "diciembre"
-}
+    10: "octubre", 11: "noviembre", 12: "diciembre"}
 
 st.markdown(
     f"<div style='text-align:center'>Fecha de petición: "
     f"{hoy.day} de {meses_num[hoy.month]} de {hoy.year} {hoy.strftime('%H:%M:%S')}</div>",
-    unsafe_allow_html=True
-)
+    unsafe_allow_html=True)
 
 st.markdown(f"<div style='text-align:center'>Cantidad de eventos: {len(df_filtrado)}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center'>Promedio de magnitudes: {df_filtrado['Magnitud'].mean():.2f}</div>", unsafe_allow_html=True)
@@ -213,13 +210,13 @@ if evento:
 # Gráficas y mapa en columnas
 # ---------------------------
 col1, col2, col3 = st.columns([1.0,1.0,3.5])
-with col1:
+if col1:
     st.markdown("<p style='font-size:13px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
-with col2:
+elif col2:
     st.markdown("<p style='font-size:13px'>Histograma de Profundidades", unsafe_allow_html=True)
     st.write(generaProf(df_filtrado))
-with col3:
+elif col3:
     if mapa:
         center = dict(lat=18.25178, lon=-66.254512)
         st.subheader(" ")
