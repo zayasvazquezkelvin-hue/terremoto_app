@@ -47,14 +47,13 @@ def generaTabla():
 # ---------------    
 # Formatear fecha
 # ---------------
-meses_num = {
+   meses_num = {
         1: "enero", 2: "febrero", 3: "marzo",
         4: "abril", 5: "mayo", 6: "junio",
         7: "julio", 8: "agosto", 9: "septiembre",
         10: "octubre", 11: "noviembre", 12: "diciembre"
     }
-
-    df["Fecha "] = df["Fecha"].apply(
+   df["Fecha "] = df["Fecha"].apply(
         lambda x: f"{x.day} de {meses_num[x.month]} de {x.year}"
     ).str.capitalize()
     return df
