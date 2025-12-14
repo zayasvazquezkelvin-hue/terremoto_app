@@ -216,3 +216,4 @@ with col3:
         center = dict(lat=18.25178, lon=-66.254512)
         st.subheader(" ")
         st.write(generaMapa(df_filtrado, center, zoom))
+
