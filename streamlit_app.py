@@ -52,7 +52,7 @@ def generaTabla():
         "April": "abril", "May": "mayo", "June": "junio",
         "July": "julio", "August": "agosto", "September": "septiembre",
         "October": "octubre", "November": "noviembre", "December": "diciembre"}
-df["Fecha "] = df["Fecha"].apply(lambda x: f"{x.day} de {meses[x.strftime('%B')]} de {x.year}")
+    df["Fecha "] = df["Fecha"].apply(lambda x: f"{x.day} de {meses[x.strftime('%B')]} de {x.year}")
 
   #  df["Fecha "] = df["Fecha"].dt.strftime("%d de %B de %Y").str.capitalize()
     return df
