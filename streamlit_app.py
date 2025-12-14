@@ -12,16 +12,6 @@ st.divider()
 token_id = "pk.eyJ1IjoibWVjb2JpIiwiYSI6IjU4YzVlOGQ2YjEzYjE3NTcxOTExZTI2OWY3Y2Y1ZGYxIn0.LUg7xQhGH2uf3zA57szCyw"
 px.set_mapbox_access_token(token_id) 
 
-# ----------------
-# Configurar Fecha
-# ----------------
-#try:
-   # locale.setlocale(locale.LC_TIME, 'Spanish_Spain')
-#except:
- #   try:  
-  #      locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')     
-   # except:
-    #    locale.setlocale(locale.LC_TIME, 'C.UTF-8')
 # -----
 # Tabla 
 # -----
@@ -41,22 +31,25 @@ def generaTabla():
         "lat": pd.to_numeric(latitudes),
         "Lugar": places,
         "Magnitud": pd.to_numeric(magnitudes).round(2),
-        "Profundidad": pd.to_numeric(depths).round(2)})
+        "Profundidad": pd.to_numeric(depths).round(2)
+    })
     
-    
-# ---------------    
-# Formatear fecha
-# ---------------
-   meses_num = {
+    # ---------------
+    # Formatear fecha (versión robusta)
+    # ---------------
+    meses_num = {
         1: "enero", 2: "febrero", 3: "marzo",
         4: "abril", 5: "mayo", 6: "junio",
         7: "julio", 8: "agosto", 9: "septiembre",
         10: "octubre", 11: "noviembre", 12: "diciembre"
     }
-   df["Fecha "] = df["Fecha"].apply(
+
+    df["Fecha "] = df["Fecha"].apply(
         lambda x: f"{x.day} de {meses_num[x.month]} de {x.year}"
     ).str.capitalize()
+
     return df
+
 # ----------------
 # Mapas y gráficas
 # ----------------
