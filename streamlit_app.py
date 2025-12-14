@@ -104,9 +104,9 @@ def generaProf(df):
 
 df = generaTabla()
 
-# -------------------------------------
-# Filtrar eventos con magnitud negativa
-# -------------------------------------
+# ----------------------------------------------------
+# Filtrar eventos con magnitud negativa por prevención
+# ----------------------------------------------------
 
 df = df[df["Magnitud"] >= 0]
 
@@ -169,7 +169,7 @@ elif Periodo == "día":
 # Clasificación de Richter
 # ------------------------
 def clasificar_richter(mag):
-    if mag < 2.0: return "micro"
+    if 0.0<= mag < 2.0: return "micro"
     elif 2.0 <= mag < 4.0: return "menor"
     elif 4.0 <= mag < 5.0: return "ligero"
     elif 5.0 <= mag < 6.0: return "moderado"
