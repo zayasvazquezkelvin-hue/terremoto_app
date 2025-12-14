@@ -16,10 +16,10 @@ px.set_mapbox_access_token(token_id)
 # Configurar Fecha
 # ----------------
 try:
-   locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8') 
+    locale.setlocale(locale.LC_TIME, 'Spanish_Spain')
 except:
-   try:
-      locale.setlocale(locale.LC_TIME, 'Spanish_Spain')
+ try:  
+    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')     
    except:
       locale.setlocale(locale.LC_TIME, 'C.UTF-8')
 # -----
