@@ -35,7 +35,7 @@ def generaTabla():
     })
     
     # ---------------
-    # Formatear fecha (versión robusta)
+    # Formatear fecha en español (robusto)
     # ---------------
     meses_num = {
         1: "enero", 2: "febrero", 3: "marzo",
@@ -71,10 +71,6 @@ def generaMapa(df, center, zoom):
         mapbox_style="dark",
         center=center)
 
-# ----------------------------------
-#Orden de la información del hoover#
-# ----------------------------------
-    
     fig.update_traces(
         hovertemplate=
        "<b>%{hovertext}</b><br>" +
@@ -85,8 +81,6 @@ def generaMapa(df, center, zoom):
        "Profundidad: %{customdata[4]:.2f} km<br>" +
        "<extra></extra>")
     return fig
-
-
 
 
 def generaMag(df):
@@ -155,6 +149,7 @@ else:
 # Filtrar por periodo
 # -----------------------------
 hoy = pd.Timestamp.utcnow()
+
 if Periodo == "mes":
     fecha_limite = hoy - pd.Timedelta(days=30)
     df_filtrado = df_filtrado[df_filtrado["Fecha"] >= fecha_limite]
@@ -182,7 +177,21 @@ df_filtrado["Clasificación"] = df_filtrado["Magnitud"].apply(clasificar_richter
 # ------------
 # Estadísticas
 # ------------
-st.markdown(f"<div style='text-align:center'>Fecha de petición: {hoy.strftime('%d de %B de %Y %H:%M:%S')}</div>", unsafe_allow_html=True)
+
+# Diccionario de meses para la fecha de petición
+meses_num = {
+    1: "enero", 2: "febrero", 3: "marzo",
+    4: "abril", 5: "mayo", 6: "junio",
+    7: "julio", 8: "agosto", 9: "septiembre",
+    10: "octubre", 11: "noviembre", 12: "diciembre"
+}
+
+st.markdown(
+    f"<div style='text-align:center'>Fecha de petición: "
+    f"{hoy.day} de {meses_num[hoy.month]} de {hoy.year} {hoy.strftime('%H:%M:%S')}</div>",
+    unsafe_allow_html=True
+)
+
 st.markdown(f"<div style='text-align:center'>Cantidad de eventos: {len(df_filtrado)}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center'>Promedio de magnitudes: {df_filtrado['Magnitud'].mean():.2f}</div>", unsafe_allow_html=True)
 st.markdown(f"<div style='text-align:center'>Promedio de profundidades: {df_filtrado['Profundidad'].mean():.2f} km</div>", unsafe_allow_html=True)
@@ -215,4 +224,3 @@ with col3:
         center = dict(lat=18.25178, lon=-66.254512)
         st.subheader(" ")
         st.write(generaMapa(df_filtrado, center, zoom))
-
