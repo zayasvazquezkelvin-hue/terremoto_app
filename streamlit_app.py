@@ -48,7 +48,7 @@ def generaTabla():
 # Formatear fecha
 # ---------------
 
-    df["Fecha "] = df["Fecha"].dt.strftime("%d de %B de %Y", locale='es').str.capitalize()
+    df["Fecha "] = df["Fecha"].dt.strftime("%d de %B de %Y", locale='Spanish_Spain').str.capitalize()
     return df
 
 # ----------------
