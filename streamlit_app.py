@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from quakefeeds import QuakeFeed
 import plotly.express as px
-from datetime import datetime
+import datetime
 import locale
 import numpy as np
 
