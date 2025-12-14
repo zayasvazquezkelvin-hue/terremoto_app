@@ -15,6 +15,11 @@ px.set_mapbox_access_token(token_id)
 # ----------------
 # Configurar Fecha
 # ----------------
+ meses = {
+        "January": "enero", "February": "febrero", "March": "marzo",
+        "April": "abril", "May": "mayo", "June": "junio",
+        "July": "julio", "August": "agosto", "September": "septiembre",
+        "October": "octubre", "November": "noviembre", "December": "diciembre"}
 #try:
    # locale.setlocale(locale.LC_TIME, 'Spanish_Spain')
 #except:
