@@ -15,7 +15,7 @@ px.set_mapbox_access_token(token_id)
 # ----------------
 # Configurar Fecha
 # ----------------
-meses = {
+month = {
         "January": "enero", "February": "febrero", "March": "marzo",
         "April": "abril", "May": "mayo", "June": "junio",
         "July": "julio", "August": "agosto", "September": "septiembre",
@@ -52,7 +52,7 @@ def generaTabla():
 # ---------------    
 # Formatear fecha
 # ---------------
-    meses = {
+    month = {
         "January": "enero", "February": "febrero", "March": "marzo",
         "April": "abril", "May": "mayo", "June": "junio",
         "July": "julio", "August": "agosto", "September": "septiembre",
