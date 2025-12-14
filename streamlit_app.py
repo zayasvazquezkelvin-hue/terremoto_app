@@ -5,6 +5,7 @@ import plotly.express as px
 import datetime
 import locale
 import numpy as np
+import pytz   # ← NUEVO
 
 st.set_page_config(layout="wide")
 st.title("Datos en Tiempo Real de los Terremotos en Puerto Rico y el Mundo")
@@ -33,6 +34,10 @@ def generaTabla():
         "Magnitud": pd.to_numeric(magnitudes).round(2),
         "Profundidad": pd.to_numeric(depths).round(2)
     })
+
+    # ← CONVERTIR FECHAS A PUERTO RICO
+    tz_pr = pytz.timezone("America/Puerto_Rico")
+    df["Fecha"] = df["Fecha"].dt.tz_convert(tz_pr)
     
     # --------------
     # Fecha adaptada
@@ -147,7 +152,9 @@ else:
 # -----------------------------
 # Filtrar por periodo
 # -----------------------------
-hoy = pd.Timestamp.utcnow()
+
+tz_pr = pytz.timezone("America/Puerto_Rico")
+hoy = pd.Timestamp.now(tz_pr)
 
 if Periodo == "mes":
     fecha_limite = hoy - pd.Timedelta(days=30)
@@ -177,7 +184,6 @@ df_filtrado["Clasificación"] = df_filtrado["Magnitud"].apply(clasificar_richter
 # Estadísticas
 # ------------
 
-# Diccionario de meses para la fecha de petición
 meses_num = {
     1: "enero", 2: "febrero", 3: "marzo",
     4: "abril", 5: "mayo", 6: "junio",
