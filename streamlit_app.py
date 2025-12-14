@@ -15,7 +15,7 @@ px.set_mapbox_access_token(token_id)
 # ----------------
 # Configurar Fecha
 # ----------------
- meses = {
+meses = {
         "January": "enero", "February": "febrero", "March": "marzo",
         "April": "abril", "May": "mayo", "June": "junio",
         "July": "julio", "August": "agosto", "September": "septiembre",
