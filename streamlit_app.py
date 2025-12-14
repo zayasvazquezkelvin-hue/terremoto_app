@@ -5,7 +5,7 @@ import plotly.express as px
 import datetime
 import locale
 import numpy as np
-import pytz   # ← NUEVO
+import pytz
 
 st.set_page_config(layout="wide")
 st.title("Datos en Tiempo Real de los Terremotos en Puerto Rico y el Mundo")
@@ -32,26 +32,23 @@ def generaTabla():
         "lat": pd.to_numeric(latitudes),
         "Lugar": places,
         "Magnitud": pd.to_numeric(magnitudes).round(2),
-        "Profundidad": pd.to_numeric(depths).round(2)
-    })
+        "Profundidad": pd.to_numeric(depths).round(2)})
 
-    # ← CONVERTIR FECHAS A PUERTO RICO
-    tz_pr = pytz.timezone("America/Puerto_Rico")
-    df["Fecha"] = df["Fecha"].dt.tz_convert(tz_pr)
-    
     # --------------
     # Fecha adaptada
     # --------------
+    
+    tz_pr = pytz.timezone("America/Puerto_Rico")
+    df["Fecha"] = df["Fecha"].dt.tz_convert(tz_pr)
+    
     meses_num = {
         1: "enero", 2: "febrero", 3: "marzo",
         4: "abril", 5: "mayo", 6: "junio",
         7: "julio", 8: "agosto", 9: "septiembre",
-        10: "octubre", 11: "noviembre", 12: "diciembre"
-    }
+        10: "octubre", 11: "noviembre", 12: "diciembre"}
 
     df["Fecha "] = df["Fecha"].apply(
-        lambda x: f"{x.day} de {meses_num[x.month]} de {x.year}"
-    ).str.capitalize()
+        lambda x: f"{x.day} de {meses_num[x.month]} de {x.year}").str.capitalize()
 
     return df
 
@@ -85,8 +82,8 @@ def generaMapa(df, center, zoom):
        "Fecha : %{customdata[3]}<br>" +
        "Profundidad: %{customdata[4]:.2f} km<br>" +
        "<extra></extra>")
+    
     return fig
-
 
 def generaMag(df):
     fig = px.histogram(df, x="Magnitud", color_discrete_sequence=["red"], width=300, height=600)
@@ -149,9 +146,9 @@ elif severidad == "significativo":
 else:
     df_filtrado = df[df["Magnitud"] == float(severidad)]
 
-# -----------------------------
+# -------------------
 # Filtrar por periodo
-# -----------------------------
+# -------------------
 
 tz_pr = pytz.timezone("America/Puerto_Rico")
 hoy = pd.Timestamp.now(tz_pr)
