@@ -210,13 +210,13 @@ if evento:
 # Gráficas y mapa en columnas
 # ---------------------------
 col1, col2, col3 = st.columns([1.0,1.0,3.5])
-if col1:
+with col1:
     st.markdown("<p style='font-size:13px'>Histograma de Magnitudes</>",unsafe_allow_html=True )
     st.write(generaMag(df_filtrado))
-elif col2:
+with col2:
     st.markdown("<p style='font-size:13px'>Histograma de Profundidades", unsafe_allow_html=True)
     st.write(generaProf(df_filtrado))
-elif col3:
+with col3:
     if mapa:
         center = dict(lat=18.25178, lon=-66.254512)
         st.subheader(" ")
