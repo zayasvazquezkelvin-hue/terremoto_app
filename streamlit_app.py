@@ -21,7 +21,7 @@ except:
    locale.setlocale(locale.LC_TIME, 'es_ES')
 except:
    try:
-  locale.setlocale(locale.LC_TIME, 'C.UTF-8')
+     locale.setlocale(locale.LC_TIME, 'C.UTF-8')
 # -----
 # Tabla 
 # -----
